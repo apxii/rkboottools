@@ -19,6 +19,9 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdint.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <inttypes.h>
 
 struct bootloader_header {
     uint8_t magic[4];
@@ -135,9 +138,9 @@ int main(int argc,char *argv[])
 	"Magic:\t\t%c%c%c%c\n"
 	"Header length:\t%X\n"
 	"Version:\t%u\n"
-	"Unknown:\t%08lX\n"
+	"Unknown:\t%08"PRIX32"\n"
 	"Date:\t\t%u-%u-%u %u:%u:%u\n"
-	"Chip:\t\t%08lX\n"
+	"Chip:\t\t%08"PRIX32"\n"
 	,bh.magic[0],bh.magic[1],bh.magic[2],bh.magic[3]
 	,bh.head_len
 	,bh.version
@@ -160,9 +163,9 @@ int main(int argc,char *argv[])
 	"Unknown1:\t\t%u\n"
 	"Num:\t\t%u\n"
 	"Name:\t\t%s\n"
-	"Offset:\t\t%08lX\n"
-	"Length:\t\t%08lX\n"
-	"Unknown2:\t%08lX\n"
+	"Offset:\t\t%08"PRIX32"\n"
+	"Length:\t\t%08"PRIX32"\n"
+	"Unknown2:\t%08"PRIX32"\n"
 	,fh[i].unk1
 	,fh[i].num
 	,uni_to_onebyte_dumb(fh[i].uname)

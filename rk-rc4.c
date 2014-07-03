@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <fcntl.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 /* scrambling/descrambling reverse engineered by AleMaxx */
 static void decode_page(char *inpg, char *outpg, const int size)
