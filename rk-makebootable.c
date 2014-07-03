@@ -20,6 +20,8 @@
 #include <fcntl.h>
 #include <stdint.h>
 #include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 struct bootinfo {
 	uint32_t flag;
